@@ -1,0 +1,1 @@
+lang Object org jhotdraw geom Stroke org jhotdraw geom Grow Stroke Grow Stroke Grow Stroke float grow float miter Limit awt Shape create Stroked Shape awt Shape All Implemented Interfaces awt Stroke Grow Stroke Stroke Specified by create Stroked Shape awt Stroke Overrides create Stroked Shape Stroke 

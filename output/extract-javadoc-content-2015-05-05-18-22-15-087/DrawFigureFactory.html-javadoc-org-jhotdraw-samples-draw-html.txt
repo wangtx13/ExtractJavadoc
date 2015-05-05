@@ -1,0 +1,1 @@
+lang Object org jhotdraw xml Default Dom Factory org jhotdraw samples draw Draw Figure Factory Draw Figure Factory Draw Figure Factory All Implemented Interfaces Dom Factory Draw Figure Factory Default Dom Factory Creates new instance 

@@ -1,0 +1,1 @@
+lang Object org jhotdraw draw Figure Layer Comparator Figure Layer Comparator Figure Layer Comparator I N S T A N C E compare Figure f1 Figure f2 All Implemented Interfaces util Comparator Figure Layer Comparator lang Object implements util Comparator Specified by compare util Comparator 

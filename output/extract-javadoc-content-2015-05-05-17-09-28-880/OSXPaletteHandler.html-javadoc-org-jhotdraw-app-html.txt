@@ -1,0 +1,1 @@
+lang Object org jhotdraw app O S X Palette Handler O S X Palette Handler O S X Palette Handler Default O S X Application app add awt Window window Project project remove awt Window window Project project add Palette awt Window palette remove Palette awt Window palette util Set get Palettes O S X Palette Handler lang Object Creates new instance 

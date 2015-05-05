@@ -1,0 +1,1 @@
+lang Object org jhotdraw draw action Colors Colors awt Color shadow awt Color amount Colors lang Object Blackens the specified color by casting black shadow of the specified amount the color 
