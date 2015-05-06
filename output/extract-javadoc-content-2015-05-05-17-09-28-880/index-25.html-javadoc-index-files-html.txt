@@ -1,1 +1,0 @@
-- Variable org jhotdraw geom Bezier Path Node Control point coordinates 

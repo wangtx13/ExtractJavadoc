@@ -1,1 +1,0 @@
-Constrainer awt geom Point2 constrain Point awt geom Point2 Visible draw awt Graphics2 Drawing View view All Known Implementing Classes Grid Constrainer Constrainer Constrains the given point This changes the point which passed Returns constrained point Returns if the Constrainer grid visible Draws the constrainer grid for the specified drawing view 

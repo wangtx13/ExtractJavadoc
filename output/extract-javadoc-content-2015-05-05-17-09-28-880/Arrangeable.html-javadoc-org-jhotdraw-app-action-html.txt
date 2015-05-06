@@ -1,1 +1,0 @@
-Arrangeable set Arrangement Arrangeable Arrangement new Value Arrangeable Arrangement get Arrangement add Property Change Listener beans Property Change Listener remove Property Change Listener beans Property Change Listener All Known Implementing Classes M Didesktop Pane Arrangeable 

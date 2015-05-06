@@ -1,1 +1,0 @@
-lang Object org jhotdraw samples pert Main Main Main lang String args Main lang Object Creates new instance 

@@ -20,14 +20,14 @@ public class ParseWords {
         StringBuffer outputWords = new StringBuffer();
 
         /*分隔符：空格、引号"、左小括号(、右小括号)、左中括号[、有中括号]、点.、&、冒号:、分号;、换行符号\r\n、逗号*/
-        String[] allWords = originalWords.toString().split(" |\"|\\(|\\)|\\[|\\]|\\.|&|:|;|\r\n|,");
+        String[] allWords = originalWords.toString().split(" |\"|\\(|\\)|\\[|\\]|\\.|&|:|;|\r\n|,|-");
         
         for (String word : allWords) {
             if (!word.equals("")) {
                 String[] splitWords = splitCamelWords(word);
 //                /*若word被拆分，将原词也加入*/
 //                if (splitWords.length > 1) {
-//                    outputWords.append(word);
+//                    outputWords.append(word.toLowerCase());
 //                    outputWords.append(" ");
 //                }
                 for (String aSplitWord : splitWords) {
@@ -82,6 +82,12 @@ public class ParseWords {
             if (startWithUpper && words.length != 0) {
                 list.remove(0);
             }
+            
+            /*将list中所有字符串转为小写*/
+            for(int i = 0; i < list.size(); ++i) {
+                list.set(i, list.get(i).toLowerCase());
+            }
+            
             /*拷贝list到一个新数组*/
             String[] result = list.toArray(new String[1]);
             return result;
@@ -94,15 +100,21 @@ public class ParseWords {
 
     public static String removeStopWords(String word) {
         String stopList = "abstract array boolean br class code dd ddouble dl "
-                + "don double Double dt exception extends false file final gt id "
-                + "implementation implemented int interface interfaces java lead"
-                + " li main method methodname methods nbsp null object objects "
-                + "overrides package packages param parameters precison println "
-                + "protected public return returned returns static string system"
-                + " throws tilocblob true ul version void";
-        if (stopList.contains(word)) {
-            word = null;
+                + "don double dt error exception exist exists extends false "
+                + "file final gt id implementation implemented int interface "
+                + "interfaces invoke invokes java lead li main method methodname "
+                + "methods nbsp null object objects overrides package packages "
+                + "param parameters precison println protected public quot "
+                + "return returned returns static string system throws tilocblob "
+                + "true ul version void";
+        String[] stopwords = stopList.split(" ");
+        for(String s : stopwords) {
+            if(s.equals(word)) {
+                word = null;
+                break;
+            }
         }
+        
         return word;
     }
 }

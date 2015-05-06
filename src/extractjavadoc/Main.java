@@ -46,7 +46,7 @@ public class Main {
         String timeStampStr = sdf.format(ts);
         
         //Create a new folder
-        String folderPath = "/Users/apple/NetBeansProjects/ExtractJavadoc/output/extract-javadoc-content-" + timeStampStr + "/";
+        String folderPath = "/Users/apple/NetBeansProjects/ExtractJavadoc/output/javadoc-content-" + timeStampStr + "/";
         createDir(folderPath);
         
         File inputRootFile = new File("/Users/apple/NetBeansProjects/ExtractJavadoc/javadoc");

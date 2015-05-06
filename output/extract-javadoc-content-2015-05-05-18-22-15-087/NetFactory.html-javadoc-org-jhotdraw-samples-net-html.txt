@@ -1,1 +1,0 @@
-lang Object org jhotdraw xml Default Dom Factory org jhotdraw samples net Net Factory Net Factory Net Factory All Implemented Interfaces Dom Factory Net Factory Default Dom Factory Creates new instance 

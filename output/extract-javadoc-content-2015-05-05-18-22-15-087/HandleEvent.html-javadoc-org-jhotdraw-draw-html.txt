@@ -1,1 +1,0 @@
-lang Object util Event Object org jhotdraw draw Handle Event Handle Event Handle Event Handle src awt Rectangle invalidated Area Handle get Handle awt Rectangle get Invalidated Area All Implemented Interfaces Serializable Handle Event util Event Object See Also Serialized Form Creates new instance Gets the bounds of the invalidated area the drawing view 

@@ -1,1 +1,0 @@
-lang Object org jhotdraw draw Abstract Layouter Abstract Layouter Abstract Layouter Insets2 get Insets Figure child All Implemented Interfaces Layouter Direct Known Subclasses Horizontal Layouter Vertical Layouter Abstract Layouter lang Object implements Layouter 

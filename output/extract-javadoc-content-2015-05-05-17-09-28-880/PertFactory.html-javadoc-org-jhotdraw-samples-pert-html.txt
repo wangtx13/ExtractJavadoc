@@ -1,1 +1,0 @@
-lang Object org jhotdraw xml Default Dom Factory org jhotdraw samples pert Pert Factory Pert Factory Pert Factory All Implemented Interfaces Dom Factory Pert Factory Default Dom Factory Creates new instance 

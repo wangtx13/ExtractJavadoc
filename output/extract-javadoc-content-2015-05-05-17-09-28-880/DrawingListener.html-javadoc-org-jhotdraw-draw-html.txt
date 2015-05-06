@@ -1,1 +1,0 @@
-Drawing Listener area Invalidated Drawing Event figure Added Drawing Event figure Removed Drawing Event All Superinterfaces util Event Listener All Known Implementing Classes Default Drawing View Drawing Listener util Event Listener Sent when area of the drawing needs to be repainted Sent when figure was added Sent when figure was removed 
