@@ -25,11 +25,11 @@ public class ParseWords {
         for (String word : allWords) {
             if (!word.equals("")) {
                 String[] splitWords = splitCamelWords(word);
-//                /*若word被拆分，将原词也加入*/
-//                if (splitWords.length > 1) {
-//                    outputWords.append(word.toLowerCase());
-//                    outputWords.append(" ");
-//                }
+                /*若word被拆分，将原词也加入*/
+                if (splitWords.length > 1) {
+                    outputWords.append(word.toLowerCase());
+                    outputWords.append(" ");
+                }
                 for (String aSplitWord : splitWords) {
                     String parsedWords = removeStopWords(aSplitWord);
                     if (parsedWords != null) {
@@ -101,11 +101,11 @@ public class ParseWords {
     public static String removeStopWords(String word) {
         String stopList = "abstract array boolean br class code dd ddouble dl "
                 + "don double dt error exception exist exists extends false "
-                + "file final gt id implementation implemented int interface "
+                + "file final gt get id implementation implemented int interface "
                 + "interfaces invoke invokes java lead li main method methodname "
                 + "methods nbsp null object objects overrides package packages "
                 + "param parameters precison println protected public quot "
-                + "return returned returns static string system throws tilocblob "
+                + "return returned returns set static string system throws tilocblob "
                 + "true ul version void";
         String[] stopwords = stopList.split(" ");
         for(String s : stopwords) {
