@@ -101,11 +101,11 @@ public class ParseWords {
     public static String removeStopWords(String word) {
         String stopList = "abstract array boolean br class code dd ddouble dl "
                 + "don double dt error exception exist exists extends false "
-                + "file final gt get id implementation implemented int interface "
+                + "file final gt id implementation implemented import int interface "
                 + "interfaces invoke invokes java lead li main method methodname "
                 + "methods nbsp null object objects overrides package packages "
                 + "param parameters precison println protected public quot "
-                + "return returned returns set static string system throws tilocblob "
+                + "return returned returns static string system throws tilocblob "
                 + "true ul version void";
         String[] stopwords = stopList.split(" ");
         for(String s : stopwords) {

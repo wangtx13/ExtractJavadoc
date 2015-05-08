@@ -49,8 +49,8 @@ public class ExtractHTMLContent {
                     if (tag.equals("pre")) {
                         String pre_text = pre.text();
                         String pre_clean = Jsoup.clean(pre_text, Whitelist.none());
-                        if (pre_clean.length() > 0 && pre_clean != null) {
-                            extractResult.append(pre_clean + "\r\n");                          
+                        if (pre_clean.length() > 0) {
+                            extractResult.append(pre_clean).append("\r\n");                          
                         }
                     }
 
@@ -61,8 +61,8 @@ public class ExtractHTMLContent {
                     if (tag.equals("dl")) {
                         String dl_text = dl.text();
                         String dl_clean = Jsoup.clean(dl_text, Whitelist.none());
-                        if (dl_clean.length() > 0 && dl_clean != null) {
-                            extractResult.append(dl_clean + "\r\n");
+                        if (dl_clean.length() > 0) {
+                            extractResult.append(dl_clean).append("\r\n");
                         }
                     }
 
