@@ -27,11 +27,19 @@ public class ParseWords {
                 String[] splitWords = splitCamelWords(word);
                 /*若word被拆分，将原词也加入*/
                 if (splitWords.length > 1) {
-                    outputWords.append(word.toLowerCase());
-                    outputWords.append(" ");
+                    String parsedWords = removeStopWords(word.toLowerCase());
+                    if(parsedWords != null)
+                        parsedWords = removeClassLibrary(parsedWords.toLowerCase());
+                    if (parsedWords != null) {
+                        outputWords.append(word.toLowerCase());
+                        outputWords.append(" ");
+                    }
                 }
+                
                 for (String aSplitWord : splitWords) {
                     String parsedWords = removeStopWords(aSplitWord);
+                    if(parsedWords != null)
+                        parsedWords = removeClassLibrary(parsedWords.toLowerCase());
                     if (parsedWords != null) {
                         outputWords.append(parsedWords);
                         outputWords.append(" ");
@@ -100,13 +108,13 @@ public class ParseWords {
 
     public static String removeStopWords(String word) {
         String stopList = "abstract array boolean br class code dd ddouble dl "
-                + "don double dt error exception exist exists extends false "
-                + "file final gt id implementation implemented import int interface "
-                + "interfaces invoke invokes java lead li main method methodname "
-                + "methods nbsp null object objects overrides package packages "
-                + "param parameters precison println protected public quot "
-                + "return returned returns static string system throws tilocblob "
-                + "true ul version void";
+                + "don double dt error exception exist exists extends false file "
+                + "final float gt id implementation implemented import int "
+                + "integer interface interfaces invoke invokes java lead li long "
+                + "main method methodname methods nbsp null object objects "
+                + "overrides package packages param parameters precison println "
+                + "private protected public quot return returned returns static "
+                + "string system throws tilocblob true ul version void";
         String[] stopwords = stopList.split(" ");
         for(String s : stopwords) {
             if(s.equals(word)) {
@@ -115,6 +123,48 @@ public class ParseWords {
             }
         }
         
+        return word;
+    }
+    
+    public static String removeClassLibrary(String word) {
+
+        String stopList_common = "util lang";
+        boolean common = true;
+        String stopList_draw = "javax swing awt";
+        boolean draw = true;
+        String stoplist_customize = "org jhotdraw";
+        boolean customize = true;
+
+        if (common) {
+            String[] stopwords = stopList_common.split(" ");
+            for (String s : stopwords) {
+                if (s.equals(word)) {
+                    word = null;
+                    break;
+                }
+            }
+        }
+        
+        if (draw && (word != null)) {
+            String[] stopwords = stopList_draw.split(" ");
+            for (String s : stopwords) {
+                if (s.equals(word)) {
+                    word = null;
+                    break;
+                }
+            }
+        }
+        
+        if (customize && (word != null)) {
+            String[] stopwords = stoplist_customize.split(" ");
+            for (String s : stopwords) {
+                if (s.equals(word)) {
+                    word = null;
+                    break;
+                }
+            }
+        }
+
         return word;
     }
 }
