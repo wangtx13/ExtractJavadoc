@@ -7,6 +7,7 @@ package extractjavadoc;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,11 +17,21 @@ import java.util.regex.Pattern;
  */
 public class ParseWords {
 
-    public static StringBuffer parseAllWords(StringBuffer originalWords) {
+    private StringBuffer originalWords;
+    private boolean ifGeneral;
+    private Map<String, Boolean> libraryTypeCondition;
+
+    public ParseWords(StringBuffer originalWords, boolean ifGeneral, Map<String, Boolean> libraryTypeCondition) {
+        this.originalWords = originalWords;
+        this.ifGeneral = ifGeneral;
+        this.libraryTypeCondition = libraryTypeCondition;
+    }
+
+    public StringBuffer parseAllWords() {
         StringBuffer outputWords = new StringBuffer();
 
         /*分隔符：空格、引号"、左小括号(、右小括号)、左中括号[、有中括号]、点.、&、冒号:、分号;、换行符号\r\n、逗号*/
-        String[] allWords = originalWords.toString().split(" |\"|\\(|\\)|\\[|\\]|\\.|&|:|;|\r\n|,|-");
+        String[] allWords = originalWords.toString().split(" |\"|\\(|\\)|\\[|\\]|\\.|&|:|;|\r\n|,|-|//");
         
         for (String word : allWords) {
             if (!word.equals("")) {
@@ -51,7 +62,7 @@ public class ParseWords {
         return outputWords;
     }
 
-    public static String[] splitCamelWords(String word) {
+    private String[] splitCamelWords(String word) {
         if (!word.contains("_")) {
             /*XML、DOM、JHotDraw、ID不分割*/
             word = word.replace("XML", "Xml");
@@ -106,7 +117,7 @@ public class ParseWords {
         }
     }
 
-    public static String removeStopWords(String word) {
+    private String removeStopWords(String word) {
         String stopList = "abstract array boolean br class code dd ddouble dl "
                 + "don double dt error exception exist exists extends false file "
                 + "final float gt id implementation implemented import int "
@@ -126,16 +137,14 @@ public class ParseWords {
         return word;
     }
     
-    public static String removeClassLibrary(String word) {
+    private String removeClassLibrary(String word) {
 
         String stopList_common = "util lang";
-        boolean common = true;
-        String stopList_draw = "javax swing awt";
-        boolean draw = true;
-        String stoplist_customize = "org jhotdraw";
-        boolean customize = true;
+        boolean general = ifGeneral;
+        String stopList_draw = "javax swing awt org jhotdraw";
+        boolean draw = libraryTypeCondition.get("Drawing");
 
-        if (common) {
+        if (general) {
             String[] stopwords = stopList_common.split(" ");
             for (String s : stopwords) {
                 if (s.equals(word)) {
@@ -147,16 +156,6 @@ public class ParseWords {
         
         if (draw && (word != null)) {
             String[] stopwords = stopList_draw.split(" ");
-            for (String s : stopwords) {
-                if (s.equals(word)) {
-                    word = null;
-                    break;
-                }
-            }
-        }
-        
-        if (customize && (word != null)) {
-            String[] stopwords = stoplist_customize.split(" ");
             for (String s : stopwords) {
                 if (s.equals(word)) {
                     word = null;

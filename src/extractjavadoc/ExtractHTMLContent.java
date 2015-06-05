@@ -13,6 +13,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.jsoup.safety.Whitelist;
@@ -23,11 +24,23 @@ import org.jsoup.Jsoup;
 
 /**
  *
- * @author yaohucaizi
+ * @author apple
  */
 public class ExtractHTMLContent {
 
-    public static void extractHTMLContent(File inputFile, File outputFile) {
+    private File inputFile;
+    private File outputFile;
+    private boolean ifGeneral;
+    private Map<String, Boolean> libraryTypeCondition;
+
+    public ExtractHTMLContent(File inputFile, File outputFile, boolean ifGeneral, Map<String, Boolean> libraryTypeCondition) {
+        this.inputFile = inputFile;
+        this.outputFile = outputFile;
+        this.ifGeneral = ifGeneral;
+        this.libraryTypeCondition = libraryTypeCondition;
+    }
+
+    public void extractHTMLContent() {
         String content = "";
         String line = null;
         StringBuffer extractResult = new StringBuffer();
@@ -68,7 +81,8 @@ public class ExtractHTMLContent {
 
                 }
                 
-                extractResult = ParseWords.parseAllWords(extractResult);
+                ParseWords parseWordsTool = new ParseWords(extractResult, ifGeneral, libraryTypeCondition);
+                extractResult = parseWordsTool.parseAllWords();
                 writer.write(extractResult.toString());
                 writer.flush();
             }
